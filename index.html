@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UPI Checkout</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">₹</div>
+      <div>
+        <h1>UPI Checkout</h1>
+        <p class="sub">Payment Flow + Receipt Generator</p>
+      </div>
+    </div>
+    <button class="btn secondary" id="demoBtn">Fill Demo</button>
+  </header>
+
+  <main class="container">
+
+    <!-- Checkout -->
+    <section class="card">
+      <h2>Pay using UPI</h2>
+      <p class="muted">Enter UPI ID and amount to simulate a payment.</p>
+
+      <form id="payForm" class="form">
+
+        <div class="row">
+          <div class="field">
+            <label>Payer Name</label>
+            <input id="payerName" type="text" placeholder="Vishali" required />
+          </div>
+
+          <div class="field">
+            <label>UPI ID</label>
+            <input id="upiId" type="text" placeholder="name@bank" required />
+            <small id="upiHint" class="hint">Example: vishali@okaxis</small>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Pay To (Merchant)</label>
+            <input id="merchant" type="text" placeholder="Smart Store" required />
+          </div>
+
+          <div class="field">
+            <label>Amount (₹)</label>
+            <input id="amount" type="number" min="1" placeholder="499" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Note (Optional)</label>
+            <input id="note" type="text" placeholder="Coffee / Recharge / Rent" />
+          </div>
+
+          <div class="field">
+            <label>Mode</label>
+            <select id="mode" required>
+              <option value="UPI">UPI</option>
+              <option value="UPI Lite">UPI Lite</option>
+              <option value="UPI Autopay">UPI Autopay</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn" type="submit">Pay Now</button>
+        <p class="muted tiny">This is a UI demo. No real payment happens.</p>
+      </form>
+    </section>
+
+    <!--  Loader Section -->
+    <section class="card section" id="loadingCard" style="display:none;">
+      <h2>Processing Payment...</h2>
+      <p class="muted">Please wait while we confirm your transaction.</p>
+
+      <div style="margin-top:14px; width:100%; height:10px; border-radius:999px; background:rgba(255,255,255,0.08); overflow:hidden;">
+        <div style="height:100%; width:35%; border-radius:999px; background:linear-gradient(135deg,#4c7dff,#6e5bff); animation: move 1.2s infinite;"></div>
+      </div>
+    </section>
+
+    <!-- Result -->
+    <section class="card section" id="resultCard" style="display:none;">
+      <div class="result-head">
+        <h2>Payment Result</h2>
+        <span id="statusBadge" class="badge ok">SUCCESS</span>
+      </div>
+
+      <div class="receipt-box">
+        <div class="rline"><span>Transaction ID</span><b id="txnIdText">-</b></div>
+        <div class="rline"><span>Date</span><b id="dateText">-</b></div>
+        <div class="rline"><span>Paid To</span><b id="merchantText">-</b></div>
+        <div class="rline"><span>Payer</span><b id="payerText">-</b></div>
+        <div class="rline"><span>UPI ID</span><b id="upiText">-</b></div>
+        <div class="rline"><span>Mode</span><b id="modeText">-</b></div>
+        <div class="rline"><span>Amount</span><b id="amountText">-</b></div>
+        <div class="rline"><span>Note</span><b id="noteText">-</b></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn secondary" id="tryAgainBtn">Try Again</button>
+        <button class="btn" id="downloadBtn">Download Receipt (PDF)</button>
+      </div>
+
+      <p class="muted tiny">Tip: “Download Receipt” uses browser print-to-PDF.</p>
+    </section>
+
+    <footer class="footer">
+      <p>Made by Vishali • UPI Checkout & Receipt Flow</p>
+    </footer>
+
+  </main>
+
+  <!--  Loader animation CSS -->
+  <style>
+    @keyframes move{
+      0%{ transform: translateX(-30%); }
+      100%{ transform: translateX(260%); }
+    }
+  </style>
+
+  <script src="script.js"></script>
+</body>
+</html>

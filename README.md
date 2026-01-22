@@ -12,7 +12,7 @@ https://upi-checkout-receipt-vishali.netlify.app/
 - 3. Success / Failed simulation
 - 4. Transaction ID generation
 - 5. Receipt view with full details
-- 6 Download receipt using Print-to-PDF
+- 6. Download receipt using Print-to-PDF
 - 7. Responsive and modern UI
 
 ##  Tech Stack
